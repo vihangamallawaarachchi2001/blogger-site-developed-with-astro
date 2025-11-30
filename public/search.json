@@ -1,0 +1,122 @@
+[
+  {
+    "title": "Astro SSG Deep Dive: Why Static is the Future",
+    "description": "Exploring how Astro's static site generation delivers speed, security, and scalability.",
+    "tags": [
+      "astro",
+      "ssg",
+      "webdev",
+      "performance"
+    ],
+    "slug": "astro-ssg-deep-dive"
+  },
+  {
+    "title": "Astro vs Next.js in 2025: Choosing the Right Framework",
+    "description": "A practical comparison for content-focused vs app-focused projects.",
+    "tags": [
+      "astro",
+      "nextjs",
+      "frameworks",
+      "webdev"
+    ],
+    "slug": "astro-vs-nextjs"
+  },
+  {
+    "title": "Astro Content Collections: Type-Safe Blogging",
+    "description": "How Content Collections eliminate frontmatter errors and enable better tooling.",
+    "tags": [
+      "astro",
+      "typescript",
+      "content-collections",
+      "zod"
+    ],
+    "slug": "content-collections-astro"
+  },
+  {
+    "title": "Perfect Dark Mode in Astro: No FOUC, No JS Flicker",
+    "description": "How to implement smooth, persistent dark mode that loads instantly.",
+    "tags": [
+      "astro",
+      "dark-mode",
+      "css",
+      "ux"
+    ],
+    "slug": "dark-mode-astro"
+  },
+  {
+    "title": "Hardware Security Modules (HSMs) for Startups: Practical Guide",
+    "description": "When and how to integrate HSMs into your infrastructure without breaking the bank.",
+    "tags": [
+      "security",
+      "hsm",
+      "cryptography",
+      "infrastructure"
+    ],
+    "slug": "hardware-security-modules"
+  },
+  {
+    "title": "Hello World",
+    "description": "My first post — a journey into code, systems, and discovery.",
+    "tags": [
+      "welcome",
+      "blog",
+      "astro"
+    ],
+    "slug": "hello-world"
+  },
+  {
+    "title": "Real-Time Anomaly Detection with Kafka Streams",
+    "description": "Building a streaming pipeline for cybersecurity telemetry using Kafka and ksqlDB.",
+    "tags": [
+      "kafka",
+      "streaming",
+      "security",
+      "data-engineering"
+    ],
+    "slug": "kafka-streaming-analytics"
+  },
+  {
+    "title": "Why MDX is a Game-Changer for Developer Blogs",
+    "description": "Writing rich, interactive posts with JSX inside Markdown using Astro and MDX.",
+    "tags": [
+      "mdx",
+      "astro",
+      "blogging",
+      "jsx"
+    ],
+    "slug": "mdx-in-astro"
+  },
+  {
+    "title": "Building Real-Time Systems in Rust: Lessons from Robotics",
+    "description": "Using async-std, no_std, and RTIC to build deterministic robotic controllers.",
+    "tags": [
+      "rust",
+      "robotics",
+      "real-time",
+      "embedded"
+    ],
+    "slug": "real-time-systems-rust"
+  },
+  {
+    "title": "Secure-by-Default Docker Practices for Production",
+    "description": "Hardening containers without sacrificing developer velocity.",
+    "tags": [
+      "docker",
+      "security",
+      "devops",
+      "containers"
+    ],
+    "slug": "secure-by-default-docker"
+  },
+  {
+    "title": "Zero Trust in Robotics: Securing the Next Generation of Autonomous Systems",
+    "description": "How zero-trust architecture principles apply to robotic middleware and edge devices.",
+    "tags": [
+      "robotics",
+      "security",
+      "zero-trust",
+      "edge-computing"
+    ],
+    "slug": "zero-trust-robotics"
+  }
+]
