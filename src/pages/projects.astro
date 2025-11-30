@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Projects — VK" description="A collection of my personal and professional software projects.">
+  <div class="max-w-6xl mx-auto px-4 py-12">
+    <!-- Header -->
+    <header class="text-center mb-16">
+      <div class="inline-flex items-center gap-2 bg-violet-50 dark:bg-slate-800/50 px-3 py-1 rounded-full text-sm text-violet-700 dark:text-violet-400 mb-4">
+        <span class="w-1.5 h-1.5 rounded-full bg-violet-500"></span>
+        My Work
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">Projects</h1>
+      <p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+        Personal and professional projects in software engineering, robotics, and cybersecurity.
+      </p>
+    </header>
+
+    <!-- Projects Grid -->
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- Project 1 -->
+      <article class="group border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden bg-white dark:bg-slate-900 hover:shadow-lg transition-all duration-300">
+        <div class="relative aspect-video bg-slate-100 dark:bg-slate-800">
+          <img
+            src="/images/middleware-framework.jpg"
+            alt="Middleware Framework for Assistive Robots"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            onError={(e) => {
+              e.target.src = '/images/placeholder-project.jpg';
+            }}
+          />
+        </div>
+        <div class="p-6">
+          <h2 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors">
+            Middleware Framework
+          </h2>
+          <p class="mt-2 text-slate-600 dark:text-slate-300">
+            Fault-tolerant intent-driven middleware for assistive robots.
+          </p>
+          <div class="mt-4 flex gap-2">
+            <span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-xs rounded">Robotics</span>
+            <span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-xs rounded">C++</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 2 -->
+      <article class="group border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden bg-white dark:bg-slate-900 hover:shadow-lg transition-all duration-300">
+        <div class="relative aspect-video bg-slate-100 dark:bg-slate-800">
+          <img
+            src="/images/cybersecurity-tooling.jpg"
+            alt="Cybersecurity Tooling Automation"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            onError={(e) => {
+              e.target.src = '/images/placeholder-project.jpg';
+            }}
+          />
+        </div>
+        <div class="p-6">
+          <h2 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors">
+            Cybersecurity Tooling
+          </h2>
+          <p class="mt-2 text-slate-600 dark:text-slate-300">
+            Custom security testing and automation tools.
+          </p>
+          <div class="mt-4 flex gap-2">
+            <span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-xs rounded">Security</span>
+            <span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-xs rounded">Python</span>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- Footer CTA -->
+    <footer class="mt-20 text-center">
+      <p class="text-slate-500 dark:text-slate-400">
+        Want to collaborate? Reach out on{' '}
+        <a href="mailto:hi@vihanga.me" class="text-violet-600 dark:text-violet-400 hover:underline">email</a>.
+      </p>
+    </footer>
+  </div>
+</BaseLayout>

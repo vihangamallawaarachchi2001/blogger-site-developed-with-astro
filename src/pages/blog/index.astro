@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+
+const postModules = import.meta.glob('../../content/posts/**/*.mdx', { eager: true });
+
+const posts = Object.entries(postModules).map(([id, mod]) => {
+  const slug = id.replace(/.*\/(.+)\.mdx$/, '$1');
+  return {
+    ...mod,
+    slug,
+  };
+});
+
+posts.sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date));
+---
+
+<BaseLayout title="Blog — VK" description="Thoughts on software engineering, systems, and cybersecurity.">
+  <div class="max-w-6xl mx-auto px-4 py-12">
+    <!-- Header -->
+    <header class="text-center mb-16">
+      <div class="inline-flex items-center gap-2 bg-violet-50 dark:bg-slate-800/50 px-3 py-1 rounded-full text-sm text-violet-700 dark:text-violet-400 mb-4">
+        <span class="w-1.5 h-1.5 rounded-full bg-violet-500"></span>
+        Writing since 2025
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">Blog</h1>
+      <p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+        Deep dives, tutorials, and reflections on building robust systems.
+      </p>
+    </header>
+
+    <!-- Posts Grid -->
+    {posts.length === 0 ? (
+      <div class="text-center py-20">
+        <div class="text-slate-400 mb-4">📭</div>
+        <p class="text-lg text-slate-600 dark:text-slate-400">
+          No posts found. Please add content to <code class="bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">src/content/posts/</code>.
+        </p>
+      </div>
+    ) : (
+      <div class="grid md:grid-cols-2 gap-8">
+        {posts.map((post) => (
+          <PostCard key={post.slug} post={post} />
+        ))}
+      </div>
+    )}
+
+    <!-- Footer CTA -->
+    <footer class="mt-20 text-center">
+      <p class="text-slate-500 dark:text-slate-400">
+        Want to discuss a post? Reach out on <a href="mailto:vihanganethusara00@gmail.com" class="text-violet-600 dark:text-violet-400 hover:underline">email</a>.
+      </p>
+    </footer>
+  </div>
+</BaseLayout>

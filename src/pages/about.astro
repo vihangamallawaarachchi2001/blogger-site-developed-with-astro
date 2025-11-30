@@ -1,0 +1,145 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="About — VK" description="Learn more about VK: software engineer, researcher, and creator.">
+  <section class="min-h-screen relative overflow-hidden">
+
+    <!-- Hero -->
+    <div class="max-w-6xl mx-auto px-4 pt-24 pb-16">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+
+        <!-- Image -->
+        <div class="flex justify-center">
+          <div class="relative rounded-3xl overflow-hidden border-2 border-slate-200 dark:border-slate-800 shadow-2xl w-full max-w-md aspect-square card-transition">
+            <img
+              src="/image.png"
+              alt="VK — Software Engineer & Researcher"
+              class="w-full h-full object-cover"
+              onerror="this.src='https://api.dicebear.com/7.x/avataaars/svg?seed=VK&backgroundColor=ffeffe'"
+            />
+          </div>
+        </div>
+
+        <!-- Intro -->
+        <div>
+          <h1 class="text-5xl font-bold text-slate-900 dark:text-white mb-4">
+            Hey, I’m VK 👋
+          </h1>
+
+          <p class="text-xl text-violet-600 dark:text-violet-400 mb-4">
+            Software Engineer • System Architect • Researcher
+          </p>
+
+          <p class="text-lg text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
+            I build high-performance software systems, scalable middleware, secure platforms,
+            and intelligent robotic architectures.
+          </p>
+
+          <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+            This blog & vlog platform is where I document my real engineering journey —
+            from research to production systems.
+          </p>
+
+          <!-- Socials -->
+          <div class="flex gap-4 mt-6">
+            <a href="https://github.com/YOUR_GITHUB" target="_blank" class="px-4 py-2 rounded bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700">GitHub</a>
+            <a href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank" class="px-4 py-2 rounded bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700">LinkedIn</a>
+            <a href="https://youtube.com/@YOUR_CHANNEL" target="_blank" class="px-4 py-2 rounded bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700">YouTube</a>
+            <a href="mailto:your@email.com" class="px-4 py-2 rounded bg-violet-600 text-white hover:bg-violet-700">Contact</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <section class="bg-slate-50 dark:bg-slate-900 py-16">
+      <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <div class="text-4xl font-bold text-violet-600">4+</div>
+          <div class="text-slate-600 dark:text-slate-400">Years Experience</div>
+        </div>
+        <div>
+          <div class="text-4xl font-bold text-violet-600">30+</div>
+          <div class="text-slate-600 dark:text-slate-400">Projects</div>
+        </div>
+        <div>
+          <div class="text-4xl font-bold text-violet-600">10+</div>
+          <div class="text-slate-600 dark:text-slate-400">Research & Systems</div>
+        </div>
+        <div>
+          <div class="text-4xl font-bold text-violet-600">100%</div>
+          <div class="text-slate-600 dark:text-slate-400">Self-Driven</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Detailed Bio -->
+    <section class="max-w-4xl mx-auto px-4 py-20">
+      <h2 class="text-3xl font-bold mb-8">My Mission</h2>
+
+      <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-6">
+        My core focus is building **fault-tolerant, secure, and intelligent systems**
+        that operate reliably in the real world — from cloud platforms to robotic middleware.
+      </p>
+
+      <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-6">
+        I actively work with full-stack systems, distributed architectures, cybersecurity,
+        DevOps automation, and modular robotics research.
+      </p>
+
+      <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+        This platform exists to **teach, document, and inspire** developers to think deeply about
+        system design and engineering discipline.
+      </p>
+    </section>
+
+    <!-- Skills -->
+    <section class="bg-slate-50 dark:bg-slate-900 py-20">
+      <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-10 text-center">Core Skills</h2>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="p-6 bg-white dark:bg-slate-800 rounded-xl shadow card-transition">
+            <h3 class="font-semibold mb-2">Frontend</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-400">Astro, React, Next.js, Tailwind, UX Systems</p>
+          </div>
+          <div class="p-6 bg-white dark:bg-slate-800 rounded-xl shadow card-transition">
+            <h3 class="font-semibold mb-2">Backend</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-400">Node.js, NestJS, Redis, Kafka, APIs</p>
+          </div>
+          <div class="p-6 bg-white dark:bg-slate-800 rounded-xl shadow card-transition">
+            <h3 class="font-semibold mb-2">DevOps</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-400">Docker, CI/CD, Linux, Monitoring</p>
+          </div>
+          <div class="p-6 bg-white dark:bg-slate-800 rounded-xl shadow card-transition">
+            <h3 class="font-semibold mb-2">Security</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-400">Pentesting, Secure Middleware, Auth Systems</p>
+          </div>
+          <div class="p-6 bg-white dark:bg-slate-800 rounded-xl shadow card-transition">
+            <h3 class="font-semibold mb-2">Robotics</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-400">ROS, Sensor Fusion, Fault-Tolerant Control</p>
+          </div>
+          <div class="p-6 bg-white dark:bg-slate-800 rounded-xl shadow card-transition">
+            <h3 class="font-semibold mb-2">Research</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-400">Distributed Systems, AI Middleware</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="max-w-4xl mx-auto px-4 py-20 text-center">
+      <h2 class="text-3xl font-bold mb-4">Let’s Build Something Serious</h2>
+      <p class="text-slate-600 dark:text-slate-400 mb-8">
+        I’m open to research collaborations, startups, and engineering challenges.
+      </p>
+      <div class="flex justify-center gap-4">
+        <a href="/contact" class="px-6 py-3 rounded bg-violet-600 text-white hover:bg-violet-700">Contact Me</a>
+        <a href="/projects" class="px-6 py-3 rounded border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800">View Projects</a>
+      </div>
+    </section>
+
+  </section>
+</BaseLayout>

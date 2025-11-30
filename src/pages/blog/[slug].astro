@@ -1,0 +1,35 @@
+---
+// src/pages/blog/[slug].astro
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostLayout from '../../layouts/PostLayout.astro';
+import readingTime from '../../lib/readingTime.js';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+const rt = readingTime(String(post.body));
+---
+
+<BaseLayout
+  title={`${post.data.title} — VK`}
+  description={post.data.description || ''}
+  ogImage={`https://your-domain.com/api/og/${post.slug}`}
+>
+  <PostLayout
+    frontmatter={{
+      ...post.data,
+      slug: post.slug,
+      readingTime: rt
+    }}
+  >
+    <Content />
+  </PostLayout>
+</BaseLayout>

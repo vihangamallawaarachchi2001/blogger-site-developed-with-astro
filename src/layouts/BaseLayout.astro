@@ -1,0 +1,44 @@
+---
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+const { title = 'VK — Software Engineer', description = 'Personal blog & vlog' } = Astro.props;
+---
+<!doctype html>
+<html lang="en" class="antialiased">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="icon" href="/favicon.ico" />
+</head>
+<body>
+<div id="reading-progress"></div>
+<Nav />
+<main class="container mx-auto p-6">
+<slot />
+</main>
+<footer class="py-8 text-center text-sm text-slate-500">
+© {new Date().getFullYear()} VK — Built with Astro
+</footer>
+<script>
+// reading progress bar
+const prog = document.getElementById('reading-progress');
+function updateProg(){
+const h = document.documentElement;
+const percent = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+prog.style.width = percent + '%';
+}
+document.addEventListener('scroll', updateProg);
+</script>
+<!-- Prevent theme flash -->
+<script>
+  // On first load, check localStorage or system preference
+  const theme = localStorage.getItem('theme') ||
+                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  if (theme === 'dark') {
+    document.documentElement.classList.add('dark');
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+---
+// Nav.astro
+import ThemeToggle from './ThemeToggle.jsx';
+import SearchBox from './SearchBox.jsx';
+---
+
+<nav
+  class="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800"
+  aria-label="Main navigation"
+>
+  <div class="container mx-auto px-4 py-3">
+    <!-- Desktop Layout -->
+    <div class="hidden md:flex items-center justify-between">
+      <!-- Logo + Primary Links -->
+      <div class="flex items-center gap-6">
+        <a
+          href="/"
+          class="text-2xl font-bold bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent hover:opacity-90 transition"
+          aria-label="Go to homepage"
+        >
+          VK
+        </a>
+        <div class="flex gap-4">
+          <a
+            href="/blog"
+            class="text-sm font-medium text-slate-600 hover:text-violet-600 dark:text-slate-300 dark:hover:text-violet-400 transition"
+          >
+            Blog
+          </a>
+          <a
+            href="/vlog"
+            class="text-sm font-medium text-slate-600 hover:text-violet-600 dark:text-slate-300 dark:hover:text-violet-400 transition"
+          >
+            Vlog
+          </a>
+          <a
+            href="/projects"
+            class="text-sm font-medium text-slate-600 hover:text-violet-600 dark:text-slate-300 dark:hover:text-violet-400 transition"
+          >
+            Projects
+          </a>
+          <a
+            href="/about"
+            class="text-sm font-medium text-slate-600 hover:text-violet-600 dark:text-slate-300 dark:hover:text-violet-400 transition"
+          >
+            About
+          </a>
+        </div>
+      </div>
+
+      <!-- Search + Theme -->
+      <div class="flex items-center gap-3">
+        <div class="max-w-md">
+          <SearchBox client:load />
+        </div>
+       
+      </div>
+    </div>
+
+    <!-- Mobile Layout -->
+    <div class="flex md:hidden items-center justify-between">
+      <a
+        href="/"
+        class="text-xl font-bold bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent"
+        aria-label="Go to homepage"
+      >
+        VK
+      </a>
+
+      <button
+        id="mobile-menu-toggle"
+        class="p-2 rounded-md text-slate-700 hover:bg-slate-200 dark:text-slate-300 dark:hover:bg-slate-800"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label="Toggle navigation menu"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu (Hidden by Default) -->
+    <div id="mobile-menu" class="md:hidden mt-4 hidden pb-4" role="menu">
+      <div class="flex flex-col gap-2 mb-4">
+        <a
+          href="/blog"
+          class="py-2 px-3 rounded-lg text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
+          role="menuitem"
+        >
+          Blog
+        </a>
+        <a
+          href="/vlog"
+          class="py-2 px-3 rounded-lg text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
+          role="menuitem"
+        >
+          Vlog
+        </a>
+        <a
+          href="/projects"
+          class="py-2 px-3 rounded-lg text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
+          role="menuitem"
+        >
+          Projects
+        </a>
+        <a
+          href="/about"
+          class="py-2 px-3 rounded-lg text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
+          role="menuitem"
+        >
+          About
+        </a>
+      </div>
+      <div class="flex flex-col gap-3">
+        <div>
+          <SearchBox client:load />
+        </div>
+
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  // Mobile menu toggle
+  document.getElementById('mobile-menu-toggle').addEventListener('click', () => {
+    const menu = document.getElementById('mobile-menu');
+    const isExpanded = menu.classList.contains('hidden');
+    menu.classList.toggle('hidden');
+    document.getElementById('mobile-menu-toggle').setAttribute('aria-expanded', String(!isExpanded));
+  });
+</script>

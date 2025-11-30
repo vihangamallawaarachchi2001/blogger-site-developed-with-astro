@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+:root {
+--brand: #7c3aed; /* violet */
+}
+
+
+html {
+scroll-behavior: smooth;
+}
+
+
+body {
+@apply bg-slate-900 text-slate-100;
+}
+
+
+.dark body {
+@apply bg-slate-900 text-slate-100;
+}
+
+
+/* Markdown/prose tweaks */
+.prose a {
+color: var(--brand);
+}
+
+
+/* small helper classes */
+.container { max-width: 960px; }
+
+
+/* reading progress bar */
+#reading-progress { position: fixed; top: 0; left: 0; height: 3px; background: var(--brand); width: 0%; z-index: 60 }
+
+.aspect-video {
+  aspect-ratio: 16 / 9;
+}

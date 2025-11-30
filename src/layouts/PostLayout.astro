@@ -1,0 +1,95 @@
+---
+// layouts/PostLayout.astro
+const { frontmatter } = Astro.props;
+const { title, description, date, slug, readingTime } = frontmatter;
+---
+
+<article class="max-w-3xl mx-auto px-4 py-12">
+  <!-- Post Header -->
+  <header class="mb-12 text-center">
+    <h1 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
+      {title}
+    </h1>
+    <div class="text-slate-500 dark:text-slate-400 flex justify-center gap-2">
+      <time>{new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+      <span>•</span>
+      <span id="reading-time">{readingTime}</span>
+      <span>•</span>
+      <span id="view-count" class="animate-pulse">Loading…</span>
+    </div>
+  </header>
+
+  <!-- Post Content -->
+  <div class="prose prose-slate dark:prose-invert prose-lg max-w-none mx-auto">
+    <slot />
+  </div>
+
+  <!-- Divider -->
+  <hr class="my-12 border-slate-200 dark:border-slate-800" />
+
+  <!-- Comments -->
+  <section class="mt-8">
+    <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Comments</h2>
+    <div id="giscus" class="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800">
+      <script
+        src="https://giscus.app/client.js"
+        data-repo="YOUR_GITHUB_USER/YOUR_REPO"
+        data-repo-id="REPO_ID_FROM_GISCUS"
+        data-category="Comments"
+        data-category-id="CATEGORY_ID_FROM_GISCUS"
+        data-mapping="pathname"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="preferred_color_scheme"
+        crossorigin="anonymous"
+        async
+      ></script>
+    </div>
+  </section>
+</article>
+
+<!-- View Count Script -->
+<script>
+  (async () => {
+    const slug = location.pathname.split('/').pop();
+    if (!slug) return;
+
+    // ✅ Don't count if already viewed in the last 24 hours
+    const viewedKey = `viewed_${slug}`;
+    const hasViewed = localStorage.getItem(viewedKey);
+    const now = Date.now();
+
+    if (hasViewed && now - parseInt(hasViewed) < 24 * 60 * 60 * 1000) {
+      // Fetch current count without incrementing
+      try {
+        const res = await fetch(`/api/views/${slug}?no-increment=1`);
+        const data = await res.json();
+        const el = document.getElementById('view-count');
+        if (el) {
+          el.textContent = `${data.value} views`;
+          el.classList.remove('animate-pulse');
+        }
+      } catch (e) {
+        // silent fail
+      }
+      return;
+    }
+
+    // ✅ First view (or >24h since last): increment
+    try {
+      const res = await fetch(`/api/views/${slug}`);
+      const data = await res.json();
+      const el = document.getElementById('view-count');
+      if (el && data.value !== undefined) {
+        el.textContent = `${data.value} views`;
+        el.classList.remove('animate-pulse');
+        // Mark as viewed
+        localStorage.setItem(viewedKey, now.toString());
+      }
+    } catch (e) {
+      const el = document.getElementById('view-count');
+      if (el) el.textContent = '— views';
+      el?.classList.remove('animate-pulse');
+    }
+  })();
+</script>

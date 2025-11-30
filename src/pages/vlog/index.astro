@@ -1,0 +1,65 @@
+---
+// src/pages/vlog/index.astro
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import VideoCard from '../../components/VideoCard.jsx';
+
+const videoModules = import.meta.glob('../../content/videos/*.mdx', { eager: true });
+
+const videos = Object.entries(videoModules).map(([path, mod]) => mod);
+
+videos.sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date));
+---
+
+<BaseLayout title="Vlog — VK" description="Video logs on software, systems, and engineering insights.">
+  <div class="max-w-6xl mx-auto px-4 py-12">
+    <!-- Header -->
+    <header class="text-center mb-16">
+      <div class="inline-flex items-center gap-2 bg-violet-50 dark:bg-slate-800/50 px-3 py-1 rounded-full text-sm text-violet-700 dark:text-violet-400 mb-4">
+        <span class="w-1.5 h-1.5 rounded-full bg-violet-500"></span>
+        On YouTube
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">Vlog</h1>
+      <p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+        Technical walkthroughs, architecture deep dives, and engineering reflections—on video.
+      </p>
+    </header>
+
+    <!-- Videos Grid -->
+    {videos.length === 0 ? (
+      <div class="text-center py-20">
+        <div class="text-slate-400 text-5xl mb-4">🎥</div>
+        <p class="text-lg text-slate-600 dark:text-slate-400">
+          No videos published yet. Add files to{' '}
+          <code class="bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">src/content/videos/</code>.
+        </p>
+      </div>
+    ) : (
+      <div class="grid md:grid-cols-2 gap-8">
+        {videos.map((video, index) => (
+          <div key={index} class="flex justify-center">
+            <VideoCard
+              id={video.frontmatter.videoId}
+              title={video.frontmatter.title}
+            />
+          </div>
+        ))}
+      </div>
+    )}
+
+    <!-- Footer CTA -->
+    <footer class="mt-20 text-center">
+      <p class="text-slate-500 dark:text-slate-400">
+        New videos monthly. Subscribe on{' '}
+        <a
+          href="https://youtube.com/@yourchannel"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-red-600 hover:underline dark:text-red-400"
+        >
+          YouTube
+        </a>
+        .
+      </p>
+    </footer>
+  </div>
+</BaseLayout>
