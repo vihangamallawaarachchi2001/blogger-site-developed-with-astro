@@ -1,9 +1,0 @@
----
-title: "Perfect Dark Mode in Astro: No FOUC, No JS Flicker"
-date: 2025-04-20
-description: "How to implement smooth, persistent dark mode that loads instantly."
-image: "https://images.unsplash.com/photo-1581092580497-e0d23cb41e7a?auto=format&fit=crop&w=1200&h=630&q=80"
-tags: ["astro", "dark-mode", "css", "ux"]
----
-
-Flash of Unstyled Content (FOUC) ruins the dark mode experience. The fix? A tiny inline script in `<head>` that reads `localStorage` or `prefers-color-scheme` before paint. This post shows the exact snippet, how to integrate with Tailwind, and how to sync user preference across devices.
